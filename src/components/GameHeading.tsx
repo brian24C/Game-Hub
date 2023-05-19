@@ -3,20 +3,16 @@ import React from "react";
 import { GameQuery } from "../App";
 import usePlatforms from "../hooks/usePlatforms";
 import useGenres from "../hooks/useGenres";
+import usePlatform from "../hooks/usePlatform";
+import useGenre from "../hooks/useGenre";
 
 interface Props {
   gameQuery: GameQuery;
 }
 
 const GameHeading = ({ gameQuery }: Props) => {
-  const { data: Platforms } = usePlatforms();
-  const { data: Genres } = useGenres();
-
-  const Platform = Platforms?.results.find(
-    (platform) => platform.id === gameQuery.platformId
-  );
-  const Genre = Genres?.results.find((Genre) => Genre.id === gameQuery.genreId);
-  console.log(gameQuery.genreId, gameQuery.platformId);
+  const Platform = usePlatform(gameQuery.platformId);
+  const Genre = useGenre(gameQuery.genreId);
 
   const heading = `${Platform?.name || ""} ${Genre?.name || ""} Games`;
   return (
