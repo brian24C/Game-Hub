@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 
 import { MdPhoneIphone } from "react-icons/md";
-import { Platform } from "../hooks/usePlatforms";
+import { Platform } from "../entities/Platform";
 import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { HStack, Icon, Text } from "@chakra-ui/react";
