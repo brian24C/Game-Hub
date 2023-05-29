@@ -5,6 +5,7 @@ import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardContainer from "./GameCardContainer";
 import GameCardSkeleton from "./GameCardSkeleton";
+import { NavLink } from "react-router-dom";
 
 const GameGrid = () => {
   const {
@@ -32,7 +33,11 @@ const GameGrid = () => {
       loader={<h4>Loading...</h4>}
       endMessage={<Spinner />}
     >
-      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={6}>
+      <SimpleGrid
+        columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+        spacing={6}
+        padding="10px"
+      >
         {isLoading &&
           skeletons.map((skeleton) => (
             <GameCardContainer key={skeleton}>
@@ -43,7 +48,9 @@ const GameGrid = () => {
           <React.Fragment key={index}>
             {page.results.map((game) => (
               <GameCardContainer key={game.id}>
-                <GameCard game={game} />
+                <NavLink to={`games/${game.slug}`} className="nav-link">
+                  <GameCard game={game} />
+                </NavLink>
               </GameCardContainer>
             ))}
           </React.Fragment>
