@@ -11,7 +11,7 @@ const GameScreenshots = ({ gameId }: Props) => {
 
   if (isLoading) return null;
   if (error) throw error;
-  console.log(data);
+
   return (
     <SimpleGrid columns={{ base: 1, md: 2 }} spacing={2}>
       {data?.results.map((file) => (

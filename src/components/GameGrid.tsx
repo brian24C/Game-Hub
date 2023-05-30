@@ -20,7 +20,6 @@ const GameGrid = () => {
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   if (error) return <Text>{error.message}</Text>;
-  console.log(data?.pages);
 
   const fetchedGamesCount =
     data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
