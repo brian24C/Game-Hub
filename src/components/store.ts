@@ -1,7 +1,5 @@
-import { create } from "zustand";
-import { Genre } from "../entities/Genre";
-import { Platform } from "../entities/Platform";
 import { mountStoreDevtool } from "simple-zustand-devtools";
+import { create } from "zustand";
 
 interface GameQuery {
   genreId?: number;
